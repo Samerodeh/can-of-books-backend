@@ -32,5 +32,7 @@ try{
 }
 
 }
-seedUserData();
-module.exports = userModel;
+// seedUserData();
+module.exports = {
+  userModel,
+  seedUserData};
