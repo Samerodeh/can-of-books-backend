@@ -60,7 +60,8 @@ if (error) {
 
 const deleteBook =(req,res) =>{
  console.log(req.params);
-          const bookIndex = req.params.book_index;
+          const bookIndex = req.params.book_idx;
+          console.log('iiiiiiiiiiiiiiii',bookIndex);
           const {userEmail}= req.query
           console.log(req.query);
 userModel.findOne({email: userEmail},(error,userData) =>{
