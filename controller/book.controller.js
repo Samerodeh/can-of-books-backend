@@ -40,18 +40,21 @@ if(error){
     })
 }
 
-const updatebook =(req,res)=>{
+const updateBook =(req,res)=>{
 
     const bookIndex = req.params.book_idx
+    console.log('Update bookIndex',bookIndex);
   const {userEmail, bookName,discBook,bookStatus} =req.body;
-  userModel.findOne({email :userEmail},(error,userData)=>{
+  userModel.findOne({email : userEmail},(error,userData)=>{
+      console.log('email=',userEmail,'book=', bookName,'discre==', discBook,'status=', bookStatus,'bookindex==', bookIndex);
 if (error) {
     res.send(error)
 }else{
     userData.books.splice(bookIndex,1,{
-        name: bookName ,
+        name: bookName,
         description: discBook,
-        status :bookStatus})
+        status :bookStatus
+    })
         userData.save();
         res.send(userData)
     }
@@ -59,7 +62,7 @@ if (error) {
 }
 
 const deleteBook =(req,res) =>{
- console.log(req.params);
+ console.log('req.params=======',req.params);
           const bookIndex = req.params.book_idx;
           console.log('iiiiiiiiiiiiiiii',bookIndex);
           const {userEmail}= req.query
@@ -81,7 +84,7 @@ if (error) {
 module.exports = {
     getBooks,
     createBook,
-    updatebook,
+    updateBook,
     deleteBook
 
 };

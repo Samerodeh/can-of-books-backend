@@ -8,7 +8,7 @@ require('dotenv').config()
 const { 
     getBooks , 
     createBook,
-     updatebook,
+     updateBook,
     deleteBook} = require('./controller/book.controller')
 const PORT = process.env.PORT
 const cors =require('cors');
@@ -32,7 +32,7 @@ app.get('/books',getBooks)
 
 app.post('/book',createBook)
 
-app.put('/book/:book_idx',updatebook )
+app.put('/book/:book_idx',updateBook )
 
 app.delete('/book/:book_idx',deleteBook )
  app.listen(PORT,() =>{
