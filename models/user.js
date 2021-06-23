@@ -14,7 +14,7 @@ const userModel = mongoose.model('users',userSchema);
 const seedUserData = () => {
     const newUser = new userModel({
        
-           email: 'osama.alali89@gmail.com',
+           email: 'samerodeh220@gmail.com',
            books:[
              {name: 'HTML5', description:'The Best Book HTML', status: true },
                                    
@@ -32,7 +32,7 @@ try{
 }
 
 }
-// seedUserData();
+ /* //seedUserData(); */
 module.exports = {
   userModel,
   seedUserData};

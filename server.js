@@ -1,5 +1,5 @@
-const express = require('express') // require the express package
-const app = express() // initialize your express app instance
+const express = require('express') 
+const app = express() 
 
 const mongoose=require('mongoose')
 
@@ -17,15 +17,15 @@ app.use(cors())
 app.use(express.json());
 
 const {seedUserData}=require('./models/user')
-mongoose.connect('mongodb://localhost:27017/book',
-    { useNewUrlParser: true, useUnifiedTopology: true }
+mongoose.connect(`${process.env.MONGODB_URL}` ,
+    { useNewUrlParser: true, useUnifiedTopology: true }   
 );
 
-// seedUserData();
-// a server endpoint 
-app.get('/', // our endpoint name
- function (req, res) { // callback function of what we should do with our request
-  res.send('Hello World') // our endpoint function response
+ //seedUserData();
+ 
+app.get('/', 
+ function (req, res) { 
+  res.send('Hello World') 
 })
 
 app.get('/books',getBooks)
